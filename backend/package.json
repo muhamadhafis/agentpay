@@ -1,0 +1,20 @@
+{
+  "name": "agentpay-backend",
+  "type": "module",
+  "scripts": {
+    "dev": "bun --watch --env-file=../.env src/index.ts",
+    "start": "bun --env-file=../.env src/index.ts",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@libsql/client": "^0.17.4",
+    "@x402/evm": "^2.0.0",
+    "@x402/fetch": "^2.0.0",
+    "viem": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5.0.0"
+  }
+}

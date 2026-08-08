@@ -1,0 +1,200 @@
+/* AgentPay docs — layout & komponen halaman dokumentasi. */
+
+.docs-layout {
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  gap: 40px;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 40px 22px 70px;
+  align-items: start;
+}
+
+/* ---------- sidebar ---------- */
+.docs-side {
+  position: sticky;
+  top: 76px;
+  font-size: 12.5px;
+  line-height: 2.1;
+  max-height: calc(100vh - 96px);
+  overflow-y: auto;
+}
+.docs-side-title {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 6px;
+}
+.docs-nav { display: flex; flex-direction: column; }
+.docs-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  padding-left: 10px;
+  transition: color 0.15s, border-color 0.15s;
+}
+.docs-nav a:hover { color: var(--accent); border-left-color: var(--accent); }
+
+/* ---------- konten ---------- */
+.docs-hero { padding-bottom: 10px; }
+.docs-hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(28px, 4.5vw, 42px);
+  margin: 0 0 10px;
+  letter-spacing: -0.02em;
+}
+.docs-lead { color: var(--ink-dim); font-size: 14.5px; max-width: 60ch; margin: 0 0 6px; }
+
+.docs-main h2 {
+  font-family: var(--serif);
+  font-size: 21px;
+  margin: 44px 0 8px;
+  scroll-margin-top: 80px;
+}
+.docs-main h3 { font-family: var(--serif); font-size: 17px; margin: 26px 0 6px; }
+.docs-main p, .docs-main li { color: var(--ink-dim); font-size: 14px; line-height: 1.7; }
+
+/* ---------- endpoint card ---------- */
+.endpoint {
+  background: var(--panel-2);
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  margin: 16px 0;
+  overflow: hidden;
+}
+.endpoint-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: 13.5px;
+  flex-wrap: wrap;
+}
+.method {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  border-radius: 6px;
+  padding: 3px 8px;
+}
+.m-GET { color: var(--ok); border: 1px solid rgba(142, 224, 138, 0.4); }
+.m-POST { color: var(--accent); border: 1px solid rgba(198, 242, 78, 0.4); }
+.endpoint-path { font-weight: 600; }
+.endpoint-desc {
+  padding: 12px 16px;
+  font-size: 13px;
+  color: var(--muted);
+  border-bottom: 1px solid var(--line-soft);
+  line-height: 1.6;
+}
+.endpoint-desc b { color: var(--ink-dim); }
+.endpoint-desc .inline-code { color: var(--accent); }
+
+/* ---------- code ---------- */
+pre {
+  background: #0e100b;
+  border: 0;
+  border-bottom: 1px solid var(--line-soft);
+  border-radius: 0;
+  padding: 14px 16px;
+  overflow-x: auto;
+  margin: 0;
+}
+pre code {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: var(--ink-dim);
+}
+.endpoint pre:last-child { border-bottom: 0; }
+
+.inline-code {
+  background: rgba(198, 242, 78, 0.08);
+  color: var(--accent);
+  border-radius: 5px;
+  padding: 1px 6px;
+  font-size: 12px;
+  font-family: var(--mono);
+}
+
+.resp-label {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 12px 16px 0;
+}
+.endpoint .resp-label + pre { margin-top: 4px; }
+
+/* ---------- elemen lain ---------- */
+.note {
+  background: rgba(198, 242, 78, 0.06);
+  border: 1px solid rgba(198, 242, 78, 0.25);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 13px;
+  color: var(--ink-dim);
+  margin: 18px 0;
+  line-height: 1.6;
+}
+.note b { color: var(--accent); }
+
+.table-wrap { overflow-x: auto; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin: 12px 0;
+  min-width: 480px;
+}
+th, td {
+  text-align: left;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--line-soft);
+  color: var(--ink-dim);
+  vertical-align: top;
+}
+th {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.back {
+  display: inline-block;
+  margin-top: 40px;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 13px;
+}
+.back:hover { text-decoration: underline; }
+
+/* ---------- mobile ---------- */
+@media (max-width: 900px) {
+  .docs-layout { grid-template-columns: 1fr; gap: 8px; padding: 26px 16px 60px; }
+  .docs-side {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    margin-bottom: 6px;
+  }
+  .docs-side-title { display: none; }
+  .docs-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .docs-nav a {
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 5px 12px;
+    font-size: 12px;
+  }
+  .docs-nav a:hover { border-color: var(--accent); }
+  .docs-main h2 { margin-top: 34px; }
+}

@@ -1,0 +1,14 @@
+# Render blueprint — satu web service: backend + frontend statis (diserve Bun).
+# Deploy: connect repo ini di Render, env di dashboard:
+#   MONAD_RPC_URL, DEPLOYER_PRIVKEY, AGENTPAY_ADDRESS, USDC_TEST_ADDRESS,
+#   X402_FACILITATOR_URL, X402_PAY_TO_ADDRESS, GROQ_API_KEY,
+#   TURSO_URL, TURSO_TOKEN
+services:
+  - type: web
+    name: agentpay
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: PORT
+        value: 3000

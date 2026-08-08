@@ -1,0 +1,19 @@
+# deps
+node_modules/
+
+# env
+.env
+backend/agentpay.db
+backend/agentpay.db-journal
+
+# foundry
+contracts/cache/
+contracts/out/
+contracts/broadcast/
+
+# misc
+*.log
+.DS_Store
+# sqlite lokal (prod pakai Turso)
+backend/*.sql
+backend/*.sql*
